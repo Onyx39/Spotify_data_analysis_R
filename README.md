@@ -1,1 +1,19 @@
-# Data_analysis_in_R_INFO831
+# Spotify_data_analysis_R
+
+## Objectif du projet
+
+Le but de ce projet est d'analyser une jeu de données à l'aide du langage R. Cette analyse utilisera plusieurs outils d'informatique décisionnelle (Buisiness Intelligence), telles que la régression linéaire, l'ACP ou la régression logistique.
+
+Notre choix s'est porté sur un jeu de données contenant 200 chansons présentes sur la plateforme Spotify. Le dataset est disponible à cette adresse sur Kaggle : https://www.kaggle.com/datasets/bricevergnou/spotify-recommendation
+
+## Utilisation du programme
+### Prérequis
+Il est bien sur nécessaire de pouvoir compiler du R sur votre machine.
+
+### Lancement
+Pour faire fonctionner le code, exécuter le fichier <i>main.R</i> depuis le répertoire src en ayant séléctionné les fonctions qui vous intéressent. Have fun !
+
+## WIP
+
+Les fonctionnalités sont en développement, soyez patients. <br>
+Un rapport viendra pour faire un bilan des conclusions de l'étude.
