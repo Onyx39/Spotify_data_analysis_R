@@ -11,7 +11,7 @@ Notre choix s'est porté sur un jeu de données contenant 200 chansons présente
 Il est bien sur nécessaire de pouvoir compiler du R sur votre machine.
 
 ### Lancement
-Pour faire fonctionner le code, exécuter le fichier <i>main.R</i> depuis le répertoire src en ayant séléctionné les fonctions qui vous intéressent. Have fun !
+Pour faire fonctionner le code, commencer par exécuter le fichier <i>librairies.R</i> pour importer les librairies nécessaires. Ensuite, exécuter le fichier <i>main.R</i>  ayant séléctionné les fonctions qui vous intéressent. Have fun !
 
 ## WIP
 

@@ -1,20 +1,29 @@
 # Importation des fichiers utilisés
 source("src/1_linear_regression.R")
+source("src/2_pca_mfa.R")
+source("src/3_logistic_regression.R")
 
-
-# Fonction pour 'clear' la console
-clc <- function() cat(rep("\n", 50))
 
 
 # Importation des données dans un data frame
 spotifyDF <- as.data.frame(read.csv("data/data_spotify.csv"))
-# print(summary(spotifyDF))
+
 
 
 # Utilisation des fonctions d'analyses
-clc()
-print("Debut du programme")
+# Modifiable à volonté
+main <- function () {
+    cat(rep("\n", 50))
+    print("Debut du programme")
+    #print(summary(spotifyDF))
 
-all_models(spotifyDF)
+    #all_linear_models(spotifyDF)
 
-print("Fin du programme")
+    #acp_afm(spotifyDF)
+
+    logistic_regression(spotifyDF)
+
+    print("Fin du programme")
+}
+
+main()

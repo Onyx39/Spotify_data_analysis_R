@@ -1,0 +1,1 @@
+acp_afm <- function(df) Factoshiny(df)
