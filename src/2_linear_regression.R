@@ -19,9 +19,17 @@ linear_model_3 <- function(df) {
     print(summary(modele3))
 }
 
+linear_model_4 <- function(df) {
+    modele4 <- lm(danceability ~ instrumentalness + energy + valence + loudness + speechiness, data = df)
+    #plot(modele4)
+    #print(coef(modele4))
+    print(summary(modele4))
+}
+
 all_linear_models <- function(df) {
-    #linear_model_1(df)
-    #linear_model_2(df)
+    linear_model_1(df)
+    linear_model_2(df)
     linear_model_3(df)
+    linear_model_4(df)
 }
 
