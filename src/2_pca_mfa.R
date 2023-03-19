@@ -10,8 +10,8 @@ acp_afm <- function(df) {
                               df["liveness"], 
                               df["valence"], 
                               df["tempo"], 
-                              df["duration_ms"], 
                               df["time_signature"], 
+                              df["duration_ms"], 
                               df["liked"]);
 
     #print(summary(modified_df));

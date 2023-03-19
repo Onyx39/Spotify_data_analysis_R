@@ -13,7 +13,7 @@ Il est bien sur nécessaire de pouvoir compiler du R sur votre machine.
 ### Lancement
 Pour faire fonctionner le code, commencer par exécuter le fichier <i>librairies.R</i> pour importer les librairies nécessaires. Ensuite, exécuter le fichier <i>main.R</i>  ayant séléctionné les fonctions qui vous intéressent. Have fun !
 
-## WIP
+## Pour aller plus loin
 
-Les fonctionnalités sont en développement, soyez patients. <br>
-Un rapport viendra pour faire un bilan des conclusions de l'étude.
+Pour plus d'informations sur le projet et sur ses conclusions, consulter le rapport présent dans ce dossier ou via <a href="./Report.md">ce lien</a>.
+

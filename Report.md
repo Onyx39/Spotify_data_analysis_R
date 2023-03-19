@@ -39,11 +39,11 @@ Nous avons essayé de recommencer l'analyse avec d'autres couples de dimensions 
 ### L'AFM
 L'intérêt de l'AFM est de pouvoir créer des groupes de varibales pour analyser leur comportemet globale. Voici les groupes que nous avons formé pour réaliser l'analyse : 
 <table>
-<tr><b>
-   <td>id</td>
-   <td>nom du groupe</td>
-   <td>variables</td>
-</b></tr>
+<tr>
+   <td><b>id</b></td>
+   <td><b>nom du groupe</b></td>
+   <td><b>variables</b></td>
+</tr>
 <tr>
    <td>1</td>
    <td>dynamism</td>
@@ -66,13 +66,13 @@ L'intérêt de l'AFM est de pouvoir créer des groupes de varibales pour analyse
 </tr>
 <tr>
    <td>5</td>
-   <td>tempo</td>
-   <td>tempo</td>
+   <td>rythm</td>
+   <td>tempo<br>time_signature</td>
 </tr>
 <tr>
    <td>6</td>
-   <td>time</td>
-   <td>duration_ms<br>time_signature<td>
+   <td>duration</td>
+   <td>duration_ms</td>
 </tr>
 <tr>
    <td>7</td>
