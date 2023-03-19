@@ -5,20 +5,23 @@ logistic_regression <- function(df) {
     train <- subset(df, split == TRUE);
 
     # Vérif données représentatives
-    print(mean(test$liked));
-    print(mean(train$liked));
-    print(mean(df$liked));
+    #print(mean(test$liked));
+    #print(mean(train$liked));
+    #print(mean(df$liked));
 
-    modele1 <- glm(liked ~ danceability + energy + key + loudness + mode + speechiness + acousticness + instrumentalness + liveness + valence + tempo + duration_ms + time_signature, family=binomial, data=df);
-    #print(summary(modele1))
+    modele1 <- glm(liked ~ danceability + loudness + speechiness + duration_ms, family=binomial, data=train);
+    print(summary(modele1))
 
-    print(table(df$liked));
-    print(table(train$liked));
-    print(table(test$liked));
+    #print(table(df$liked));
+    #print(table(train$liked));
+    #print(table(test$liked));
 
     prediction <- predict(modele1, newdata=test, type='response');
     #print(prediction);
+    print("Prédiction > 0.5");
     print(table(test$liked, prediction > 0.5));
+    print("Prédiction > 0.2");
     print(table(test$liked, prediction > 0.2));
+    print("Prédiction > 0.8");
     print(table(test$liked, prediction > 0.8));
 }
