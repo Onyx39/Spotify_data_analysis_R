@@ -25,6 +25,7 @@ Pour entrer dans les détails, voici la liste complète des variables :
 <li><b>duration_ms</b> : la durée de la musique en milliseconde, </li>
 <li><b>time_signature</b> (1-5) : attribut de classe pour reprenter le chiffrage des mesures (type  binaire ou terneire par exemple),</li>
 <li><b>liked_song</b> (0-1) : classe, l’auteur du dataset a aimé ou non la musique.</li>
+</ul>
 
 Il est à noter que ce dataset a été créé par un utilisateur de Spotify. Il reflète donc les goûts musicaux d’un seul utilisateur de la plateforme.
 
@@ -104,12 +105,16 @@ C'est l'AFM qui va nous permettre de créer des groupes de varibales pour analys
 
 C'est pour réaliser ces groupes que nous avons modifié l'ordre des colonnes dans le fichier 2_pca_mfa.R. Lorsque nous réaliser l'analyse, voici le pourcentage d'explications des données en fonction des valeurs propres : 
 <center><img src="report_pictures/MFA_Eigenvalues.png"></center>
+
 Les deux premières valeurs propres expliquent donc 40% des données, ce qui n'est pas si mal nous semble-t-il. 
 
 Voici alors le graphe des axes partiels : 
 <center><img src="report_pictures/MFA_GraphPartial.png" height="75%" width="75%"></center>
-IL semble diificile de tirer des coclusions raisonnables de ce graphe. Nous nous tournons alors vers e graphe des groupes pour essayer d'y voir un peu plus clair.
+
+Il semble diificile de tirer des coclusions raisonnables de ce graphe. Nous nous tournons alors vers e graphe des groupes pour essayer d'y voir un peu plus clair.
+
 <center><img src="report_pictures/MFA_GraphGroup.png" height="75%" width="75%"></center>
+
 Sur ce graphique, et en nous aidant du précedent, nous constatons que la variable liked semble le plus proche du groupe dynamism. On a donc une approximation de ce à quoi l'auteur du dataset porte le plus attention lorsqu'il ou elle écoute une musique.
 
 Enfin, des tabelaux des coefffcients Lg et RV, nous ne tirons rien de plus. Finalement, l'analyse AFM ne nous aura pas tellementaidé à appréhender les données.
@@ -118,42 +123,46 @@ C'est pourquoi nous allons désormais nous interesser aux varibales de manière 
 
 ## Partie 2 : la régression linéaire
 ### La varibale energy
-La première variable que nous avons voulu expliquer, est la varibale energy. On peut supposer d’une musique énergique l’est par sa positivité (_valence_), sa _danceability_, son caractère bruyant (_loudness_) et par sa _liveness_.
+La première variable que nous avons voulu expliquer, est la varibale energy. On peut supposer d’une musique énergique l’est par sa positivité (valence), sa danceability, son caractère bruyant (_loudness_) et par sa liveness.
 
-Faisons une régression linéaire de la variable _energy_ selon celles qu’on suppose pertinentes pour l’expliquer.
+Faisons une régression linéaire de la variable energy selon celles qu’on suppose pertinentes pour l’expliquer.
 
 Voici les résultats :
 <center><img src="report_pictures/linReg_1.png"></center>
-On peut remarquer que nos suppositions sont plutôt bonnes, sauf pour la _liveness_. En effet, toutes les variables explicatives sont statiquement significatives (sauf _liveness_). De plus le r2 ajusté vaut 0.77, ce qui n’est pas parfait mais plutôt bon. 
+
+On peut remarquer que nos suppositions sont plutôt bonnes, sauf pour la liveness. En effet, toutes les variables explicatives sont statiquement significatives (sauf liveness). De plus le r2 ajusté vaut 0.77, ce qui n’est pas parfait mais plutôt bon. 
 
 Cependant, selon notre modèle, plus une musique est énergique moins est sera probable d’être dansante, ce qui peut paraître contradictoire mais concordre avec ce que nous avions constaté dnas la partie précédente.
 
 Nous décidons de ne pas appronfondir ce modèle, et nous tounons vers une autre varible.
 
-### La variable _danceability_
-Pour la variable _danceability_ on va procéder en supposant que toutes les variables autres que _danceability_ et les variables qualitatives sont explicatives.
+### La variable danceability 
+Pour la variable danceability on va procéder en supposant que toutes les variables autres que danceability et les variables qualitatives sont explicatives.
 
 Voici les résultats : 
 <center><img src="report_pictures/linReg_2.png"></center>
+
 On peut voir qu’on a un r2 ajusté de 0.74, ce qui est plutôt bon, 74% des données sont expliquées par le modèle.
 
 On remarque aussi que le tempo et la durée de la musique ne sont pas du tout des variables statistiquement significatives. Ce qui est étonnant car on pourrait supposer qu’un tempo rapide témoigne d’une musique dansante.
 
-De plus, on peut noter que la variable _intrumentalness_ est grande moins la musique sera considéré comme dansante, c’est l’inverse qui se produit avec la variable _speechiness_. Cela est logique étant donné qu’_intrumentalness_ et _speechiness_ sont des variables “antagonistes”.
+De plus, on peut noter que la variable intrumentalness est grande moins la musique sera considéré comme dansante, c’est l’inverse qui se produit avec la variable speechiness. Cela est logique étant donné qu’intrumentalness et speechiness sont des variables “antagonistes”.
 
-Les variables _loudness_ et _valance_ permettent d’expliquer positivement qu’une musique est dansante et que plus la présence d’instrument électronique est grande, plus la musique est dansante.
+Les variables loudness et valance permettent d’expliquer positivement qu’une musique est dansante et que plus la présence d’instrument électronique est grande, plus la musique est dansante.
 
-On a aussi la variable _energy_ qui est négativement explicative de _danceablity_, comme dans la régression linéaire précédente.
+On a aussi la variable energy qui est négativement explicative de danceablity, comme dans la régression linéaire précédente.
 
 On peut ainsi enlever les variables tempo et duration_ms dans notre modèle.
 
 Voici les nouveaux résultats :
 <center><img src="report_pictures/linReg_3.png"></center>
+
 Le r2 ajusté a très légèrement baissé et la variable _acousticness_ n'est plus statistiquement significative mais le modèle reste plutôt bon. Il reste améliorable enenlevan la variable _acousticness_. C'ets ec que nous faisons, mais la variable liveness devient à son tour non statistiquement significative. Nous la retirons également. 
 
-Voici le modèle final pour expliquer la variable _danceability_ : 
+Voici le modèle final pour expliquer la variable danceability : 
 <center><img src="report_pictures/linReg_4.png"></center>
-Le r2 n'a presque pas bougé depuis le premier modèle proposé,  mais nousa vons retiré 3 varibales explicatives (33%). Le modèle est satisfaisant pour expliquer la variable _danceability_. 
+
+Le r2 n'a presque pas bougé depuis le premier modèle proposé,  mais nousa vons retiré 3 varibales explicatives (33%). Le modèle est satisfaisant pour expliquer la variable danceability. 
 
 
 
@@ -166,11 +175,12 @@ On veut pouvoir déterminer quelles musiques ont été aimées selon leurs carac
 
 Après plusieurs tests en essayant de baisser l’AIC au maximum et en ne gardant que des variables statistiquement significatives on arrive à ce résultat : 
 <center><img src="report_pictures/logReg_1.png"></center>
-On a donc les variables danceability, loudness (le groupe 'dynamism' dans l'AFM), speechiness, tempo et duration_ms qui permettent d’expliquer la variable qualitative _liked_. On remarque que plus une musique est longue, plus elle ne sera probablement pas aimée par l’utilisateur.
+
+On a donc les variables danceability, loudness (le groupe 'dynamism' dans l'AFM), speechiness, tempo et duration_ms qui permettent d’expliquer la variable qualitative liked. On remarque que plus une musique est longue, plus elle ne sera probablement pas aimée par l’utilisateur.
 
 On peut expliquer que ces variables sont explicatives de liked par les goûts musicaux du créateur du dataset. En effet, il cite : "It is mainly French Rap , sometimes American rap , rock or electro music. For those I dislike , I collected songs from various kind of music so the model will have a broader view of what I don't like."
 
-Étant donné qu’il est un grand fan de rap, le fait que les variables _loudness_ ou _speechiness_ soient présentes dans notre modèle n’est pas étonnant. 
+Étant donné qu’il est un grand fan de rap, le fait que les variables loudness ou speechiness soient présentes dans notre modèle n’est pas étonnant. 
 
 
 Pour encore améliorer le modèle de prédiction, nous étudions l'impact du seuil sur les résultats. Pour ce faire, nousa llons calculer la précision et le rappel des modèles avec différents seuils.
@@ -249,4 +259,5 @@ Ainsi, on peut voir qu’il y a déjà une énorme différence entre un seuil à
 
 
 ## Conclusion
-WIP
+En conclusion, nous avons pu comprendre les préférences musicales d'une personne grâce à ses données. Il faut toutefois noter que, pour la régression logistique, ces données sont limitées et il aurait été préférable de disposer de plus de chansons dans le dataset. Cela dit, c'est éthode pourrait être généralisé à plusieurs utilisateurs pour créer un "détecteur de tube" par exemple, si l'ont dispose de suffisament de données.
+Au delà de ça, nous avons pu mener notre prorpe démarche à l'aide d'outils vu en cours ce qui était très appréciable.
