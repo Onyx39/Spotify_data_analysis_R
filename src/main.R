@@ -1,6 +1,6 @@
 # Importation des fichiers utilisés
-source("src/1_linear_regression.R")
-source("src/2_pca_mfa.R")
+source("src/1_pca_mfa.R")
+source("src/2_linear_regression.R")
 source("src/3_logistic_regression.R")
 
 
@@ -20,9 +20,9 @@ main <- function () {
     
     #print(summary(spotifyDF))
 
-    #all_linear_models(spotifyDF)
-
     acp_afm(spotifyDF)
+
+    #all_linear_models(spotifyDF)
 
     #logistic_regression(spotifyDF)
 
