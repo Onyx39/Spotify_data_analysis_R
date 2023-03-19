@@ -2,7 +2,7 @@ linear_model_1 <- function(df) {
     modele1 <- lm(energy ~ valence + danceability + loudness + liveness, data = df)
     #plot(modele1)
     #print(coef(modele1))
-    print(summary(modele1))
+    print(summary(modele1)) 
 }
 
 linear_model_2 <- function(df) {

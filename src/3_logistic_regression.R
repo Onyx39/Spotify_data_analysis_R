@@ -7,7 +7,7 @@ logistic_regression <- function(df) {
     # Vérif données représentatives
     #print(mean(test$liked));
     #print(mean(train$liked));
-    #print(mean(df$liked));
+    #print(mean(df$liked)); 
 
     modele1 <- glm(liked ~ danceability + loudness + speechiness + duration_ms, family=binomial, data=train);
     print(summary(modele1))

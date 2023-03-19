@@ -260,4 +260,4 @@ Ainsi, on peut voir qu’il y a déjà une énorme différence entre un seuil à
 
 ## Conclusion
 En conclusion, nous avons pu comprendre les préférences musicales d'une personne grâce à ses données. Il faut toutefois noter que, pour la régression logistique, ces données sont limitées et il aurait été préférable de disposer de plus de chansons dans le dataset. Cela dit, c'est éthode pourrait être généralisé à plusieurs utilisateurs pour créer un "détecteur de tube" par exemple, si l'ont dispose de suffisament de données.
-Au delà de ça, nous avons pu mener notre prorpe démarche à l'aide d'outils vu en cours ce qui était très appréciable.
+Au delà de ça, nous avons pu mener notre propre démarche à l'aide d'outils vu en cours ce qui était très appréciable.

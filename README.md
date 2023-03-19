@@ -15,5 +15,5 @@ Pour faire fonctionner le code, commencer par exécuter le fichier <i>librairies
 
 ## Pour aller plus loin
 
-Pour plus d'informations sur le projet et sur ses conclusions, consulter le rapport présent dans ce dossier ou via <a href="./Report.md">ce lien</a>.
+Pour plus d'informations sur le projet et sur ses conclusions, consulter le rapport présent dans ce dossier ou via <a href="./Report.md">ce lien</a>. 
 

@@ -22,9 +22,9 @@ main <- function () {
 
     acp_afm(spotifyDF)
 
-    #all_linear_models(spotifyDF)
+    all_linear_models(spotifyDF)
 
-    #logistic_regression(spotifyDF)
+    logistic_regression(spotifyDF)
 
     print("Fin du programme")
 }
